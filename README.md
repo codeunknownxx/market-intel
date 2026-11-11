@@ -7,8 +7,8 @@
 A tool that turns **thousands of public comments** on YouTube (plus optional
 Reddit and Instagram sources) into sentiment, themes, a word graph, an inferred
 purchase funnel, trends over time and AI-written insights — using a **local
-language model** (Ollama). All results are **aggregated and anonymous**: it never
-profiles individuals.
+language model** (Ollama). Results are **aggregated**: commenter names and IDs
+are never collected or stored, and it never profiles individuals.
 
 It is the first build of **Ahab**, my hands-on path to becoming an AI engineer
 (backend Python + AI).
@@ -39,7 +39,7 @@ analysis on the machine.
 flowchart LR
     A[YouTube / Reddit / Instagram<br/>official APIs] --> B[Cleaning]
     B --> C[Local LLM<br/>controlled vocabulary]
-    C --> D[Aggregation<br/>no personal data]
+    C --> D[Aggregation<br/>no commenter IDs]
     D --> E[(SQLite)]
     E --> F[FastAPI] --> G[Web page<br/>tables, graph, funnel, trends]
 ```
@@ -56,8 +56,8 @@ GitHub Actions CI
   aggregation → storage → HTTP API → web page.
 - Using a local LLM with a **controlled vocabulary** so its output can be
   aggregated and tested, instead of free text.
-- Staying within the law and the platforms' terms: official APIs, public data
-  only, aggregated results, no personal data of third parties.
+- Designing to respect the platforms' terms: official APIs, public data only,
+  aggregated results, no commenter names or IDs stored.
 - Spec-driven development and an automated test suite that runs in CI on every
   push.
 
@@ -68,6 +68,6 @@ reach me through my GitHub profile.
 
 ---
 
-🇧🇷 Inteligência de mercado a partir de comentários públicos, com IA local e resultados agregados e anônimos.
+🇧🇷 Inteligência de mercado a partir de comentários públicos, com IA local e resultados agregados, sem identificar autores.
 
 © 2026 Felipe Mendes. All rights reserved.
